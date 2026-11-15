@@ -8,6 +8,14 @@ import { navLinks } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { Magnetic } from '@/components/magnetic'
 
+declare global {
+  interface Window {
+    Tawk_API?: {
+      maximize?: () => void
+    }
+  }
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -23,6 +31,24 @@ export function SiteHeader() {
     }
   }, [])
 
+  // Tawk.to Live Chat
+  useEffect(() => {
+    window.Tawk_API = window.Tawk_API || {}
+
+    const existingScript = document.getElementById('tawkto-widget')
+
+    if (!existingScript) {
+      const script = document.createElement('script')
+      script.id = 'tawkto-widget'
+      script.async = true
+      script.src =
+        'https://embed.tawk.to/6af9f50b6adb8e3c49dd2d1c/1k7g6adeg'
+      script.charset = 'UTF-8'
+      script.setAttribute('crossorigin', '*')
+      document.body.appendChild(script)
+    }
+  }, [])
+
   const handleNavClick = (
     event: MouseEvent<HTMLAnchorElement>,
     isHome: boolean,
@@ -34,6 +60,10 @@ export function SiteHeader() {
       window.history.replaceState(null, '', '/')
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+  }
+
+  const handleChatClick = () => {
+    window.Tawk_API?.maximize?.()
   }
 
   return (
@@ -80,6 +110,18 @@ export function SiteHeader() {
           })}
         </ul>
 
+        <div className="hidden md:block">
+          <Magnetic strength={0.15}>
+            <button
+              type="button"
+              onClick={handleChatClick}
+              className="rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#344F60]"
+            >
+              Let's Talk
+            </button>
+          </Magnetic>
+        </div>
+
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-full border border-border md:hidden"
@@ -116,6 +158,17 @@ export function SiteHeader() {
               )
             })}
           </ul>
+
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false)
+              handleChatClick()
+            }}
+            className="mt-5 w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+          >
+            Let's Talk
+          </button>
         </div>
       )}
     </header>
