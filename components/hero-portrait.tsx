@@ -11,10 +11,10 @@ const bricolage = Bricolage_Grotesque({
 })
 
 const poses = [
-  '/images/Hero/front.png',
-  '/images/Hero/left.png',
-  '/images/Hero/right.png',
-  '/images/Hero/typing.png',
+  '/images/Hero/front.webp',
+  '/images/Hero/left.webp',
+  '/images/Hero/right.webp',
+  '/images/Hero/typing.webp',
 ]
 
 const poseNames = [
