@@ -1,5 +1,5 @@
+
 import { SiteHeader } from '@/components/site-header'
-import { Hero } from '@/components/hero'
 import { WorkGallery } from '@/components/work-gallery'
 import { About } from '@/components/about'
 import { Services } from '@/components/services'
@@ -11,7 +11,6 @@ export default function HomePage() {
     <>
       <SiteHeader />
       <main>
-        <Hero />
         <Services />
         <WorkGallery />
         <About />
