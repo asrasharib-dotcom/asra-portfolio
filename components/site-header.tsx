@@ -1,4 +1,3 @@
-
 'use client'
 
 import Link from 'next/link'
@@ -12,6 +11,9 @@ declare global {
   interface Window {
     Tawk_API?: {
       maximize?: () => void
+      showWidget?: () => void
+      hideWidget?: () => void
+      onLoad?: () => void
     }
   }
 }
@@ -31,9 +33,13 @@ export function SiteHeader() {
     }
   }, [])
 
-  // Tawk.to Live Chat
+  // Tawk.to Live Chat — hidden until Let's Talk is clicked
   useEffect(() => {
     window.Tawk_API = window.Tawk_API || {}
+
+    window.Tawk_API.onLoad = () => {
+      window.Tawk_API?.hideWidget?.()
+    }
 
     const existingScript = document.getElementById('tawkto-widget')
 
@@ -46,6 +52,10 @@ export function SiteHeader() {
       script.charset = 'UTF-8'
       script.setAttribute('crossorigin', '*')
       document.body.appendChild(script)
+    }
+
+    return () => {
+      window.Tawk_API = undefined
     }
   }, [])
 
@@ -63,6 +73,7 @@ export function SiteHeader() {
   }
 
   const handleChatClick = () => {
+    window.Tawk_API?.showWidget?.()
     window.Tawk_API?.maximize?.()
   }
 
@@ -110,6 +121,7 @@ export function SiteHeader() {
           })}
         </ul>
 
+        {/* Desktop Let's Talk button */}
         <div className="hidden md:block">
           <Magnetic strength={0.15}>
             <button
@@ -122,6 +134,7 @@ export function SiteHeader() {
           </Magnetic>
         </div>
 
+        {/* Mobile menu button */}
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-full border border-border md:hidden"
@@ -134,10 +147,11 @@ export function SiteHeader() {
         </button>
       </nav>
 
+      {/* Mobile menu */}
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-border px-6 pb-8 pt-4 md:hidden"
+          className="border-t border-border bg-background/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden"
         >
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => {
@@ -165,7 +179,7 @@ export function SiteHeader() {
               setOpen(false)
               handleChatClick()
             }}
-            className="mt-5 w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+            className="mt-5 w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#344F60]"
           >
             Let's Talk
           </button>
