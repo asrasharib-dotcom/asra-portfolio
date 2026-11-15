@@ -1,17 +1,20 @@
 
 'use client'
+
 import { Bricolage_Grotesque } from 'next/font/google'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   display: 'swap',
 })
+
 const poses = [
-  '/images/hero/front.png',
-  '/images/hero/left.png',
-  '/images/hero/right.png',
-  '/images/hero/typing.png',
+  '/images/Hero/front.png',
+  '/images/Hero/left.png',
+  '/images/Hero/right.png',
+  '/images/Hero/typing.png',
 ]
 
 const poseNames = [
@@ -30,11 +33,13 @@ export function HeroPortrait() {
     const section = portraitRef.current?.closest('section')
     if (!section) return
 
+    const targetSection = section
+
     function handleMove(event: Event) {
       const pointer = event as PointerEvent
       if (pointer.pointerType === 'touch') return
 
-      const bounds = section.getBoundingClientRect()
+      const bounds = targetSection.getBoundingClientRect()
       const x = (pointer.clientX - bounds.left) / bounds.width
 
       setIsHovering(true)
@@ -49,12 +54,12 @@ export function HeroPortrait() {
       setPoseIndex(0)
     }
 
-    section.addEventListener('pointermove', handleMove)
-    section.addEventListener('pointerleave', handleLeave)
+    targetSection.addEventListener('pointermove', handleMove)
+    targetSection.addEventListener('pointerleave', handleLeave)
 
     return () => {
-      section.removeEventListener('pointermove', handleMove)
-      section.removeEventListener('pointerleave', handleLeave)
+      targetSection.removeEventListener('pointermove', handleMove)
+      targetSection.removeEventListener('pointerleave', handleLeave)
     }
   }, [])
 
@@ -78,11 +83,10 @@ export function HeroPortrait() {
         className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-visible"
       >
         <span
-  aria-hidden="true"
-  className={`${bricolage.className} animate-[float_6s_ease-in-out_infinite] whitespace-nowrap text-[clamp(5rem,12vw,15rem)] font-extrabold leading-none tracking-tight text-[#263847]/65`}
->
-  ASRA
-</span>
+          className={`${bricolage.className} animate-[float_6s_ease-in-out_infinite] whitespace-nowrap text-[clamp(5rem,12vw,15rem)] font-extrabold leading-none tracking-tight text-[#263847]/65`}
+        >
+          ASRA
+        </span>
       </div>
 
       <div className="relative z-10 aspect-[4/5] w-full max-w-lg">

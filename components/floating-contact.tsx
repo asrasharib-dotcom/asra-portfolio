@@ -52,7 +52,7 @@ export function FloatingContact() {
           </span>
 
           <Image
-            src="/images/hero/front.png"
+            src="/images/Hero/front.png"
             alt="Asra Sharib"
             width={100}
             height={100}

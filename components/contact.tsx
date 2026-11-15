@@ -46,7 +46,7 @@ export function Contact() {
               <Magnetic strength={0.12}>
                 <div className="flex items-center gap-4">
                   <Image
-                    src="/images/hero/front.png"
+                    src="/images/Hero/front.png"
                     alt="Asra Sharib"
                     width={76}
                     height={76}
