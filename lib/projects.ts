@@ -1,5 +1,15 @@
 export type Result = { value: string; label: string }
 
+export type VideoGroup = {
+  title: string
+  videos: { src: string; title: string }[]
+}
+
+export type PerformanceGroup = {
+  title: string
+  images: { src: string; alt: string; caption?: string }[]
+}
+
 export type Project = {
   slug: string
   index: string
@@ -13,9 +23,10 @@ export type Project = {
   responsibilities: string[]
   approach: string
   deliverables: string[]
-  /** Only add figures you can verify (e.g. from platform analytics). */
   results: Result[]
   gallery?: { src: string; alt: string; caption: string }[]
+  videoGroups?: VideoGroup[]
+  performanceGroups?: PerformanceGroup[]
 }
 
 export const projects: Project[] = [
@@ -48,11 +59,24 @@ export const projects: Project[] = [
     ],
     results: [],
     gallery: [
-      { src: '/images/social/feed-01.jpg', alt: 'Anonymized social media feed mockup', caption: 'Feed management & content design' },
-      { src: '/images/social/feed-02.jpg', alt: 'Anonymized social media feed mockup', caption: 'Grid consistency' },
-      { src: '/images/social/feed-04.jpg', alt: 'Anonymized social media feed mockup', caption: 'Content publishing' },
+      {
+        src: '/images/social/feed-01-.jpg',
+        alt: 'Anonymized social media feed mockup',
+        caption: 'Feed management & content design',
+      },
+      {
+        src: '/images/social/feed-02-.jpg',
+        alt: 'Anonymized social media feed mockup',
+        caption: 'Grid consistency',
+      },
+      {
+        src: '/images/social/feed-04-.jpg',
+        alt: 'Anonymized social media feed mockup',
+        caption: 'Content publishing',
+      },
     ],
   },
+
   {
     slug: 'ecommerce-campaigns',
     index: '02',
@@ -82,10 +106,19 @@ export const projects: Project[] = [
     ],
     results: [],
     gallery: [
-      { src: '/images/work-ecommerce.png', alt: 'E-commerce creative portfolio sample', caption: 'Product content concepts' },
-      { src: '/images/social/feed-03.jpg', alt: 'Anonymized e-commerce social feed mockup', caption: 'E-commerce feed design' },
+      {
+        src: '/images/work-ecommerce.png',
+        alt: 'E-commerce creative portfolio sample',
+        caption: 'Product content concepts',
+      },
+      {
+        src: '/images/social/feed-03-.jpg',
+        alt: 'Anonymized e-commerce social feed mockup',
+        caption: 'E-commerce feed design',
+      },
     ],
   },
+
   {
     slug: 'ai-video-creation',
     index: '03',
@@ -93,31 +126,81 @@ export const projects: Project[] = [
     category: 'AI & UGC-Style Content',
     summary:
       'AI-generated videos and realistic UGC-style content that feels native to social platforms.',
-    image: '/images/work-ai-video.png',
+    image: '/images/ai-video-creation-cover.jpg',
     tags: ['AI Video', 'UGC-Style', 'Short-Form'],
     overview:
-      'A body of AI-generated video work, from realistic UGC-style clips to stylised brand visuals, built for short-form platforms.',
+      'A collection of AI-generated video work, including e-commerce product videos and realistic UGC-style content created for social platforms.',
     objective:
-      'Give brands a fast, flexible way to produce authentic-feeling video content at scale.',
+      'Give brands a flexible way to produce engaging, authentic-feeling video content using AI-assisted creative production.',
     responsibilities: [
-      'Scripting UGC-style videos and voiceovers',
+      'Developing creative concepts and video scripts',
       'Generating and refining AI video scenes',
       'Editing, captioning and sound design',
-      'Adapting content for each platform’s format',
+      'Adapting content for short-form social platforms',
     ],
     approach:
-      'Scripts were written the way real people talk, then AI video and voice tools were combined with hands-on editing so the final pieces feel natural rather than synthetic.',
+      'Different creative directions were developed for product-focused e-commerce videos and UGC-style content. AI-generated scenes were refined through editing to create platform-ready videos.',
     deliverables: [
-      'UGC-style video ads',
+      'E-commerce AI UGC videos',
+      'AI UGC-style content',
       'AI-generated brand videos',
-      'Scripts & storyboards',
-      'Captioned vertical edits',
+      'Short-form vertical edits',
     ],
     results: [],
-    gallery: [
-      { src: '/images/work-ai-video.png', alt: 'AI video creative portfolio cover', caption: 'AI video concept' },
+    videoGroups: [
+      {
+        title: 'ECOMMERCE AI UGC CONTENT',
+        videos: [
+          {
+            src: '/videos/AI Ecommerce UGC video/Ecom 3-.mp4',
+            title: 'E-commerce AI UGC Video 01',
+          },
+          {
+            src: '/videos/AI Ecommerce UGC video/Ecom 4 --.mp4',
+            title: 'E-commerce AI UGC Video 02',
+          },
+          {
+            src: '/videos/AI Ecommerce UGC video/Ecomsnaps --.mp4',
+            title: 'EcomSnaps AI UGC Video',
+          },
+        ],
+      },
+      {
+        title: 'AI UGC CONTENT',
+        videos: [
+          {
+            src: '/videos/AI UGC Video/ACP 2 (online-video-cutter.com).mp4',
+            title: 'ACP Video 01',
+          },
+          {
+            src: '/videos/AI UGC Video/ACP 3 (online-video-cutter.com).mp4',
+            title: 'ACP Video 02',
+          },
+          {
+            src: '/videos/AI UGC Video/FCA- Creative 1 (online-video-cutter.com).mp4',
+            title: 'FCA Creative 01',
+          },
+          {
+            src: '/videos/AI UGC Video/FCA- Creative 1 (online-video-cutter.com) (1).mp4',
+            title: 'FCA Creative 02',
+          },
+          {
+            src: '/videos/AI UGC Video/FCA- Creative 1 (online-video-cutter.com) (2).mp4',
+            title: 'FCA Creative 03',
+          },
+          {
+            src: '/videos/AI UGC Video/FCA- Creative 1 (online-video-cutter.com) (3).mp4',
+            title: 'FCA Creative 04',
+          },
+          {
+            src: '/videos/AI UGC Video/FCA- Creative 1 (online-video-cutter.com) (4).mp4',
+            title: 'FCA Creative 05',
+          },
+        ],
+      },
     ],
   },
+
   {
     slug: 'company-branding',
     index: '04',
@@ -125,7 +208,7 @@ export const projects: Project[] = [
     category: 'Employer & Corporate Branding',
     summary:
       'Employer branding, employee-generated content and corporate campaigns that show the people behind a company.',
-    image: '/images/work-branding.png',
+    image: '/images/company-branding-cover.jpg',
     tags: ['LinkedIn', 'Employer Branding', 'EGC'],
     overview:
       'Corporate and employer branding content that presents companies as great places to work and credible partners to do business with.',
@@ -146,73 +229,241 @@ export const projects: Project[] = [
       'Event & milestone coverage',
     ],
     results: [],
-    gallery: [
-      { src: '/images/work-branding.png', alt: 'Corporate branding creative portfolio sample', caption: 'Corporate & employer branding' },
-    ],
   },
+
   {
     slug: 'social-media-strategy',
     index: '05',
     title: 'Social Media Strategy',
-    category: 'Planning & Community',
+    category: 'Content Strategy',
     summary:
-      'Content calendars, organic content and platform-specific plans that keep brands consistent and engaged.',
-    image: '/images/work-strategy.png',
-    tags: ['Strategy', 'Content Calendars', 'Community'],
+      'Strategic content planning built around brand goals, audience interests and platform-specific content.',
+    image: '/images/noor-atelier.jpg',
+    tags: ['Content Strategy', 'Research', 'Planning'],
     overview:
-      'End-to-end social media strategy, from audience research and content pillars to calendars, platform-specific planning and day-to-day community engagement.',
+      'A collection of social media strategy work focused on content direction, audience relevance and consistent brand communication.',
     objective:
-      'Create a clear, repeatable system for organic growth and consistent brand presence.',
+      'Create a clear content direction that connects social media activity with brand goals.',
     responsibilities: [
-      'Defining content pillars and tone of voice',
-      'Building monthly content calendars',
-      'Tailoring plans for each platform',
-      'Managing comments, messages and community engagement',
+      'Researching trends and relevant content ideas',
+      'Planning content pillars and monthly calendars',
+      'Developing platform-specific content strategies',
+      'Aligning content with brand voice and objectives',
     ],
     approach:
-      'Each strategy started with research into the audience and competitors, then turned insights into pillars and a calendar that the brand could actually sustain week after week.',
+      'Content ideas were organised into relevant themes and planned around audience interests, platform formats and brand objectives.',
     deliverables: [
-      'Social media strategy documents',
+      'Content strategy and planning',
+      'Content pillars and creative direction',
       'Monthly content calendars',
-      'Platform-specific content plans',
-      'Community engagement guidelines',
+      'Platform-specific content ideas',
+    ],
+    results: [],
+  },
+
+  {
+    slug: 'social-media-management',
+    index: '06',
+    title: 'Social Media Management',
+    category: 'Content & Platform Management',
+    summary:
+      'Social media management across Instagram, TikTok, LinkedIn and Meta, showcasing content creation, feed management and platform performance across multiple managed accounts.',
+    image: '/images/social-media-management-cover.jpg',
+    tags: ['Instagram', 'LinkedIn'],
+    overview:
+      'A selection of social media management work across multiple accounts and brands, highlighting feed design, brand-specific creatives and visual content created for different industries. All examples are presented anonymously to maintain client confidentiality.',
+    objective:
+      'Showcase the ability to create consistent, engaging and brand-aligned social media content that reflects each brand’s identity and maintains a cohesive visual presence across platforms.',
+    responsibilities: [
+      'Planning and maintaining content calendars',
+      'Coordinating and scheduling social media posts',
+      'Maintaining consistent feed design and brand voice',
+      'Reviewing content performance and engagement',
+      'Monitoring platform insights across managed accounts',
+      'Preparing and reviewing Meta Ads performance reports',
+    ],
+    approach:
+      'Each brand was approached with its own visual identity, audience and content style in mind. The focus was on creating cohesive social media feeds, designing brand-specific creatives and maintaining consistent visual communication across different platforms. Content was tailored to reflect each brand’s personality while keeping the overall presentation clear, engaging and visually consistent.',
+    deliverables: [
+      'Social media feed examples',
+      'Brand-specific social media designs',
     ],
     results: [],
     gallery: [
-      { src: '/images/work-strategy.png', alt: 'Social media strategy portfolio sample', caption: 'Content planning' },
-      { src: '/images/social/feed-01.jpg', alt: 'Anonymized social media feed mockup', caption: 'Content pillars in practice' },
+      {
+        src: '/images/social/feed-01-.jpg',
+        alt: 'Social media feed management example',
+        caption: 'Social Media Feed Management',
+      },
+      {
+        src: '/images/social/feed-02-.jpg',
+        alt: 'Social media grid design example',
+        caption: 'Instagram Grid & Content Design',
+      },
+      {
+        src: '/images/social/feed-03-.jpg',
+        alt: 'Social media content example',
+        caption: 'Content Planning & Publishing',
+      },
+      {
+        src: '/images/social/feed-04-.jpg',
+        alt: 'Social media management example',
+        caption: 'Social Media Content Management',
+      },
+      {
+        src: '/images/social/Fragrance Brand.jpg',
+        alt: 'Fragrance brand social media content',
+        caption: 'Fragrance Brand',
+      },
+      {
+        src: '/images/social/Jewellery Brand.jpg',
+        alt: 'Jewellery brand social media content',
+        caption: 'Jewellery Brand',
+      },
+      {
+        src: '/images/social/Restaurant Brand.jpg',
+        alt: 'Restaurant brand social media content',
+        caption: 'Restaurant Brand',
+      },
+      {
+        src: '/images/social/Self Care Brand.png',
+        alt: 'Self care brand social media content',
+        caption: 'Self Care Brand',
+      },
+      {
+        src: '/images/social/Beauty & Salon Brand.jpg',
+        alt: 'Beauty and salon brand social media content',
+        caption: 'Beauty & Salon Brand',
+      },
+    ],
+    performanceGroups: [
+      {
+        title: 'INSTAGRAM PERFORMANCE',
+        images: [
+          { src: '/images/results/ig-dashboard-345k.jpg', alt: 'Instagram account performance dashboard' },
+          { src: '/images/results/ig-dashboard-855k.jpg', alt: 'Instagram account performance dashboard' },
+          { src: '/images/results/ig-march-reach.jpg', alt: 'Instagram reach performance' },
+          { src: '/images/results/ig-views-1-5m.jpg', alt: 'Instagram video views performance' },
+          { src: '/images/results/ig-views-512k.jpg', alt: 'Instagram video views performance' },
+          { src: '/images/results/post-engagement.jpg', alt: 'Instagram post engagement insights' },
+          { src: '/images/results/insta short form reel.jpeg', alt: 'Instagram short-form reel insights' },
+          { src: '/images/results/insta short form reel 2.jpeg', alt: 'Instagram short-form reel insights' },
+          { src: '/images/results/insta short form reel 3.jpeg', alt: 'Instagram short-form reel insights' },
+          { src: '/images/results/Short-form Video1.jpeg', alt: 'Short-form video performance insights' },
+          { src: '/images/results/Short-form Video 2.jpeg', alt: 'Short-form video performance insights' },
+          { src: '/images/results/Short-form Video3.jpeg', alt: 'Short-form video performance insights' },
+          { src: '/images/results/Short-form Video4.jpeg', alt: 'Short-form video performance insights' },
+          { src: '/images/results/Short-form Video5.jpeg', alt: 'Short-form video performance insights' },
+          { src: '/images/results/Short-form Video6.jpeg', alt: 'Short-form video performance insights' },
+        ],
+      },
+      {
+        title: 'TIKTOK PERFORMANCE',
+        images: [
+          { src: '/images/results/tiktok 134.6k.jpeg', alt: 'TikTok account performance' },
+          { src: '/images/results/tiktok 143.4k.jpeg', alt: 'TikTok account performance' },
+          { src: '/images/results/tiktok 195.7k.jpeg', alt: 'TikTok account performance' },
+          { src: '/images/results/tiktok 223.2k.jpeg', alt: 'TikTok account performance' },
+          { src: '/images/results/tiktok-363k.jpg', alt: 'TikTok account performance' },
+        ],
+      },
+      {
+        title: 'LINKEDIN PERFORMANCE',
+        images: [
+          { src: '/images/results/Linkedin Result OUT of network 86% .jpeg', alt: 'LinkedIn out-of-network performance' },
+          { src: '/images/results/Linkedin Result OUT of network 89% .jpeg', alt: 'LinkedIn out-of-network performance' },
+          { src: '/images/results/Linkedin Result OUT of network 92% .jpeg', alt: 'LinkedIn out-of-network performance' },
+          { src: '/images/results/Linkedin Result OUT of network 97% .jpeg', alt: 'LinkedIn out-of-network performance' },
+        ],
+      },
+      {
+        title: 'META ADS PERFORMANCE',
+        images: [
+          { src: '/images/results/Meta Ads before result 1.jpg', alt: 'Meta Ads performance before optimisation' },
+          { src: '/images/results/Meta Ads After result 1.jpg', alt: 'Meta Ads performance after optimisation' },
+          { src: '/images/results/Meta Ads before result 2.jpg', alt: 'Meta Ads performance before optimisation' },
+          { src: '/images/results/Meta Ads after result 2.jpg', alt: 'Meta Ads performance after optimisation' },
+        ],
+      },
     ],
   },
+
   {
-    slug: 'paid-social-campaigns',
-    index: '06',
-    title: 'Paid Social Campaigns',
-    category: 'Meta Ads Management',
+    slug: 'personal-creator-account',
+    index: '07',
+    title: 'Personal Creator Account',
+    category: 'Organic Growth & UGC Content',
     summary:
-      'Meta Ads campaigns I managed directly — from audience setup and creatives to monitoring and optimisation.',
-    image: '/images/work-paid-social.png',
-    tags: ['Meta Ads', 'Facebook', 'Instagram'],
+      'An independently managed lifestyle and UGC creator account, showcasing organic reach, short-form video creation and audience engagement.',
+    image: '/images/creator-account-cover.jpg',
+    tags: ['Instagram', 'UGC', 'Lifestyle', 'Organic Growth'],
     overview:
-      'Paid social campaigns on Meta platforms where I handled campaign management, pairing ad creative with targeting and ongoing optimisation.',
+      'An independently managed Instagram creator account focused on lifestyle and UGC-style personal content. Since February 2026, I have been creating and publishing short-form videos, experimenting with creative formats and developing content that attracts new audiences through organic discovery.',
     objective:
-      'Reach the right audience efficiently and support specific campaign goals through paid placements.',
+      'To build a recognizable creator presence, expand organic reach and gain practical experience in short-form video strategy, audience behaviour and content performance.',
     responsibilities: [
-      'Setting up campaigns, ad sets and audiences in Meta Ads Manager',
-      'Preparing ad creatives and copy',
-      'Monitoring performance and adjusting budgets',
-      'Reporting on campaign performance',
+      'Researching content trends and creative ideas',
+      'Developing Reel concepts, hooks and storytelling',
+      'Creating lifestyle and UGC-style videos',
+      'Shooting and editing short-form content',
+      'Writing captions and managing publishing',
+      'Reviewing Instagram Insights and audience engagement',
     ],
     approach:
-      'Creatives were tested in variations, audiences refined based on early signals, and budget shifted towards what performed best throughout each campaign.',
+      'My approach combines lifestyle storytelling, relatable concepts, visual creativity and consistent short-form video publishing. I focus on researching trends, developing engaging Reel ideas, creating and editing videos, and evaluating performance to understand what resonates with the audience.',
     deliverables: [
-      'Campaign structure & audience setup',
-      'Ad creatives & copy variations',
-      'Performance monitoring',
-      'Campaign reports',
+      'Lifestyle and UGC-style Reels',
+      'Short-form video concepts',
+      'Content creation and editing',
+      'Instagram content publishing',
+      'Organic performance tracking',
     ],
-    results: [],
+    results: [
+      { value: '1,033', label: 'Current Followers' },
+      { value: '169K', label: 'Highest Reel Views' },
+      { value: '30K', label: 'Typical Recent Reel Views' },
+      { value: '509,033', label: 'Accounts Reached · 90 Days' },
+      { value: '6.6K', label: 'Profile Visits · 90 Days' },
+      { value: '5 / Week', label: 'Reels Publishing Frequency' },
+    ],
     gallery: [
-      { src: '/images/work-paid-social.png', alt: 'Paid social campaign portfolio cover', caption: 'Meta Ads campaign work' },
+      {
+        src: '/images/creator-account/reel-2.png',
+        alt: 'Instagram creator Reel',
+        caption: 'Recent Reels with around 40K views',
+      },
+      {
+        src: '/images/creator-account/reel-3.png',
+        alt: 'Instagram creator Reel',
+        caption: 'Recent Reels with around 30K views',
+      },
+    ],
+    performanceGroups: [
+      {
+        title: 'INSTAGRAM ACCOUNT PERFORMANCE',
+        images: [
+          {
+            src: '/images/creator-account/profile.jpg',
+            alt: 'Instagram creator profile showing current followers',
+            caption: 'Current Instagram Profile',
+          },
+          {
+            src: '/images/creator-account/90-day-reach.png',
+            alt: 'Instagram accounts reached in the last 90 days',
+            caption: '509K+ Accounts Reached in 90 Days',
+          },
+          {
+            src: '/images/creator-account/profile-visits.png',
+            alt: 'Instagram profile visits in the last 90 days',
+            caption: '6.6K Profile Visits in 90 Days',
+          },
+          {
+            src: '/images/creator-account/highest-reel-169k.png',
+            alt: 'Highest performing Reel with 169K views',
+            caption: 'Highest Performing Reel — 169K Views',
+          },
+        ],
+      },
     ],
   },
 ]

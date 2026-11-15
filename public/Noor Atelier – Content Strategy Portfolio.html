@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noor Atelier – Content Strategy Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F7F4;--text:#263847;--ring:#527D89;--muted:#EAF0EF;--line:#cfdad9;--soft:#5d6f7b;--gold:#9a7b4a;--on-ring:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a262e;--text:#EAF0EF;--ring:#7fb0bd;--muted:#243540;--line:#37505c;--soft:#a9bcc4;--gold:#d2b27a;--on-ring:#1a262e}}
+:root[data-theme="dark"]{--bg:#1a262e;--text:#EAF0EF;--ring:#7fb0bd;--muted:#243540;--line:#37505c;--soft:#a9bcc4;--gold:#d2b27a;--on-ring:#1a262e}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ring);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{display:flex;gap:20px;flex-wrap:wrap;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav b{margin-right:auto;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600}
+nav a{text-decoration:none;color:var(--soft)}nav a:hover{color:var(--text)}
+.hero{padding:88px 0 72px;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(46px,8vw,92px);letter-spacing:-.01em}
+.hero p{font-size:18px;max-width:46ch;color:var(--soft);margin:24px 0 0}
+.ring{aspect-ratio:1;border-radius:50%;border:1px solid var(--ring);display:grid;place-items:center;max-width:300px;justify-self:end;width:100%;position:relative}
+.ring::before{content:"";position:absolute;inset:14%;border-radius:50%;border:10px solid var(--muted);box-shadow:0 0 0 1px var(--ring)}
+.ring::after{content:"";position:absolute;top:-9px;left:50%;width:18px;height:18px;margin-left:-9px;transform:rotate(45deg);background:var(--ring)}
+.ring span{font-family:"Cormorant Garamond",serif;font-size:20px;text-align:center;line-height:1.2;position:relative}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(34px,5vw,52px);margin-bottom:12px}
+.lead{max-width:60ch;color:var(--soft);margin:0 0 40px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border:1px solid var(--line)}
+.facts div{padding:24px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts h3{font-size:24px;margin-bottom:8px}
+.facts p{margin:0;color:var(--soft);font-size:15px}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.pillar{background:var(--muted);padding:28px 24px;border-top:4px solid var(--c)}
+.pillar h3{font-size:28px;margin-bottom:4px}
+.pillar .share{font-size:14px;font-weight:700;color:var(--c)}
+.pillar p{margin:12px 0 0;font-size:15px}
+.pillar ul{margin:12px 0 0;padding-left:18px;color:var(--soft);font-size:14px}
+.plats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.plat{border:1px solid var(--line);padding:24px}
+.plat h3{font-size:26px}
+.plat .cad{font-size:13px;font-weight:700;color:var(--ring);margin:4px 0 12px}
+.plat ul{margin:0;padding-left:18px;font-size:15px}
+.plat li{margin-bottom:8px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.ctl button{font:500 14px "DM Sans",sans-serif;background:transparent;color:var(--text);border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer}
+.ctl button[aria-pressed="true"]{background:var(--ring);color:var(--on-ring);border-color:var(--ring)}
+.key{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:20px;color:var(--soft)}
+.key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.dow{background:var(--muted);padding:8px;font-size:13px;font-weight:700;text-align:center}
+.cell{background:var(--bg);min-height:104px;padding:8px;text-align:left;font:inherit;color:inherit;border:0;display:block;width:100%}
+.cell .d{font-size:13px;color:var(--soft);display:block}
+.cell.has{cursor:pointer}
+.cell.has:hover{background:var(--muted)}
+.cell.on{background:var(--muted);box-shadow:inset 0 0 0 2px var(--ring)}
+.cell.off{opacity:.25}
+.cell em{display:block;font-style:normal;font-size:12.5px;line-height:1.3;margin-top:6px;padding-left:10px;border-left:3px solid var(--c)}
+.cell.hide em{display:none}
+.det{margin-top:20px;background:var(--muted);padding:28px;border-left:4px solid var(--ring);min-height:120px}
+.det h3{font-size:30px;margin:6px 0 10px}
+.det .m{font-size:14px;color:var(--soft)}
+.det p{margin:6px 0;max-width:62ch}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line)}
+.pal div{padding:56px 20px 16px;font-size:14px}
+.pal b{display:block;font-size:16px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.kpi div{border-top:1px solid var(--text);padding-top:12px}
+.kpi b{font:500 36px "Cormorant Garamond",serif;display:block}
+.kpi span{color:var(--soft);font-size:14px}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+@media(max-width:760px){
+.hero{grid-template-columns:1fr;padding:56px 0 48px}.ring{justify-self:start;max-width:200px}
+.facts div{border-right:0;border-bottom:1px solid var(--line)}.facts div:last-child{border-bottom:0}
+.cal{display:block}.dow{display:none}
+.cell{min-height:0;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.cell.empty,.cell.hide{display:none}.cell .d{min-width:44px}.cell em{margin:0;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Noor Atelier</b><a href="#strategy">Strategy</a><a href="#pillars">Pillars</a><a href="#platforms">Platforms</a><a href="#calendar">Calendar</a><a href="#measure">Results</a></nav>
+
+<header class="hero">
+<div>
+<h1>Content strategy for fine jewellery</h1>
+<p>A portfolio project: a complete social media plan for Noor Atelier, a fictional handmade silver and gold-plated jewellery label, built around the festive and wedding season.</p>
+</div>
+<div class="ring" aria-hidden="true"><span>Worn daily,<br>kept for years</span></div>
+</header>
+
+<section id="strategy">
+<h2>Strategy and planning</h2>
+<p class="lead">Jewellery is a considered purchase. People need to trust the craft, picture the piece on themselves, and find a reason to buy now. The plan moves followers through those three steps.</p>
+<div class="facts">
+<div><h3>Goal</h3><p>Grow followers by 25% and bring monthly online orders up 30% over the December season.</p></div>
+<div><h3>Audience</h3><p>Women aged 22 to 38 who buy for themselves, for gifts and for weddings, and who value handmade pieces over mass-market ones.</p></div>
+<div><h3>Voice</h3><p>Warm, calm and precise. Plain words, short sentences, and no pressure tactics.</p></div>
+<div><h3>Journey</h3><p>Discover through Reels and Pinterest, trust through craft and reviews, then buy through Stories and WhatsApp.</p></div>
+</div>
+</section>
+
+<section id="pillars">
+<h2>Content pillars and creative direction</h2>
+<p class="lead">Four pillars keep the feed varied but recognisable. Every post belongs to exactly one.</p>
+<div class="pillars">
+<article class="pillar" style="--c:#263847"><span class="share">30% of posts</span><h3>Craft and process</h3><p>Show how each piece is made, from sketch to polish.</p><ul><li>Casting and stone-setting close-ups</li><li>Maker interviews</li><li>Materials explained</li></ul></article>
+<article class="pillar" style="--c:#527D89"><span class="share">30% of posts</span><h3>Styling and wearing</h3><p>Help people picture each piece in their own life.</p><ul><li>Layering and stacking guides</li><li>Outfit pairings</li><li>One piece, three ways</li></ul></article>
+<article class="pillar" style="--c:#9a7b4a"><span class="share">25% of posts</span><h3>Gifting and occasions</h3><p>Give people a reason and a shortlist.</p><ul><li>Gift guides by budget</li><li>Bridal and festive edits</li><li>Packaging and cards</li></ul></article>
+<article class="pillar" style="--c:#3d6672"><span class="share">15% of posts</span><h3>Community and proof</h3><p>Let customers do the persuading.</p><ul><li>Reviews and customer photos</li><li>Polls and Q&amp;A</li><li>Care tips</li></ul></article>
+</div>
+<h3 style="margin:48px 0 16px;font-size:28px">Creative direction</h3>
+<div class="pal">
+<div style="background:#F5F7F4;color:#263847"><b>Soft Ivory</b>#F5F7F4 · backgrounds</div>
+<div style="background:#263847;color:#F5F7F4"><b>Deep Navy</b>#263847 · text and headlines</div>
+<div style="background:#527D89;color:#fff"><b>Teal Blue</b>#527D89 · focus and accents</div>
+<div style="background:#EAF0EF;color:#263847"><b>Soft Grey Aqua</b>#EAF0EF · cards and panels</div>
+</div>
+<p class="lead" style="margin-top:20px">Photography: soft daylight, ivory or grey-aqua backdrops, hands and skin tones over mannequins, one piece per frame. Type: a high-contrast serif for headlines and a clean sans-serif for captions.</p>
+</section>
+
+<section id="platforms">
+<h2>Platform-specific ideas</h2>
+<p class="lead">Each platform has one job. The same idea is reshaped, not copied.</p>
+<div class="plats">
+<article class="plat"><h3>Instagram</h3><div class="cad">4 feed posts and daily Stories a week</div><ul><li>Reel: wax-to-ring casting in 30 seconds</li><li>Carousel: how to layer three necklace lengths</li><li>Stories: polls, countdowns and order shout-outs</li><li>Highlights: Care, Gifting, Reviews, Sizing</li></ul></article>
+<article class="plat"><h3>TikTok</h3><div class="cad">2 videos a week</div><ul><li>Packing an order, in real time</li><li>“Things I wish I knew before buying silver”</li><li>Try-on with three outfits, one earring</li><li>Behind-the-scenes mistakes and fixes</li></ul></article>
+<article class="plat"><h3>Pinterest</h3><div class="cad">3 pins a week</div><ul><li>Bridal jewellery mood boards</li><li>Gift ideas by budget</li><li>Stacking and layering inspiration</li><li>Each pin links to a product page</li></ul></article>
+<article class="plat"><h3>Facebook and WhatsApp</h3><div class="cad">2 posts a week plus a broadcast</div><ul><li>Customer reviews and unboxing photos</li><li>Weekly new-arrival broadcast</li><li>Order updates and sizing help</li><li>Early access for returning customers</li></ul></article>
+</div>
+</section>
+
+<section id="calendar">
+<h2>Monthly content calendar: December 2026</h2>
+<p class="lead">Select a day to see the format, hook and goal. Filter by platform to see one channel’s rhythm.</p>
+<div class="ctl" id="filters" role="group" aria-label="Filter by platform"></div>
+<div class="key" id="key"></div>
+<div class="cal" id="cal"></div>
+<div class="det" id="det" aria-live="polite"><span class="m">Select a day in the calendar to see the post details.</span></div>
+</section>
+
+<section id="measure">
+<h2>How success is measured</h2>
+<p class="lead">Review every Friday. Keep what works, retire what doesn’t.</p>
+<div class="kpi">
+<div><b>+25%</b><span>follower growth across platforms</span></div>
+<div><b>5%</b><span>average engagement rate on Reels</span></div>
+<div><b>3%</b><span>click-through from Stories to shop</span></div>
+<div><b>+30%</b><span>online orders compared with November</span></div>
+</div>
+</section>
+<footer>Noor Atelier is a fictional brand created for this portfolio.</footer>
+</div>
+
+<script>
+var P=[{n:"Craft and process",c:"#263847"},{n:"Styling and wearing",c:"#527D89"},{n:"Gifting and occasions",c:"#9a7b4a"},{n:"Community and proof",c:"#3d6672"}];
+var D={
+1:[0,"Instagram","Reel","Wax to ring in 30 seconds","Hook: “This ring started as a block of wax.”","Goal: show the craft and start the December story."],
+2:[3,"Instagram","Story poll","Gold tone or silver this winter?","Hook: “Help us pick the hero of the festive edit.”","Goal: spark replies and learn what to feature."],
+3:[1,"Pinterest","Pin","Three necklace lengths, one outfit","Hook: “The layering rule that always works.”","Goal: drive saves and traffic to the necklace page."],
+4:[2,"Instagram","Carousel","Gift guide: under Rs 5,000","Hook: “Five gifts that don’t feel like a compromise.”","Goal: capture early gift shoppers."],
+7:[0,"TikTok","Video","Packing an order in real time","Hook: “Every order gets a hand-written card.”","Goal: build trust and show care."],
+8:[1,"Instagram","Reel","One earring, three outfits","Hook: “Same piece. Work, dinner, wedding.”","Goal: show versatility."],
+9:[3,"Facebook","Post","Customer review of the week","Hook: Photo and quote from a real buyer.","Goal: social proof."],
+10:[2,"Pinterest","Pin board","Bridal jewellery mood board","Hook: “Something simple for the nikkah or mehndi.”","Goal: reach engaged and bridal audiences."],
+11:[0,"Instagram","Carousel","Sterling silver, gold plating and vermeil explained","Hook: “What you’re actually paying for.”","Goal: educate and reduce purchase doubt."],
+14:[2,"Instagram","Story countdown","Festive edit launches Friday","Hook: “Something new is arriving.”","Goal: build anticipation and reminders."],
+15:[1,"TikTok","Video","Things I wish I knew before buying silver","Hook: “Don’t wear it in the shower. Here’s why.”","Goal: reach new viewers with useful tips."],
+16:[2,"Instagram","Reel","Festive edit launch","Hook: “Meet the festive edit.”","Goal: drive launch-day sales."],
+17:[3,"WhatsApp","Broadcast","Early access for returning customers","Hook: “First look, just for you.”","Goal: reward loyal customers and convert quickly."],
+18:[1,"Instagram","Carousel","Stacking rings: a beginner’s guide","Hook: “Start with two. Add one.”","Goal: save-worthy styling content."],
+21:[3,"Instagram","Story Q&amp;A","Ask the maker anything","Hook: “Sizing, care, gifts: ask away.”","Goal: build connection and answer objections."],
+22:[2,"Instagram","Reel","Last order dates for gifts","Hook: “Order by Thursday for delivery before the 25th.”","Goal: urgency without pressure."],
+23:[0,"TikTok","Video","Gift wrapping, start to finish","Hook: “The part nobody sees.”","Goal: show packaging quality."],
+25:[3,"Instagram","Story","Thank you, and a customer photo wall","Hook: “Your photos made our season.”","Goal: gratitude and user-generated content."],
+28:[3,"Facebook","Post","Year in review: your favourite pieces","Hook: Top five best-sellers of 2026.","Goal: recap and re-engage."],
+30:[1,"Instagram","Carousel","New year, new stack","Hook: “Start 2027 with one piece you’ll wear daily.”","Goal: bridge into January sales."]};
+var plats=["All","Instagram","TikTok","Pinterest","Facebook","WhatsApp"],cur="All",sel=null;
+var cal=document.getElementById("cal"),det=document.getElementById("det"),fl=document.getElementById("filters");
+function setup(){
+ plats.forEach(function(p){var b=document.createElement("button");b.textContent=p;b.setAttribute("aria-pressed",p==="All");b.onclick=function(){cur=p;[].forEach.call(fl.children,function(x){x.setAttribute("aria-pressed",x.textContent===p)});draw()};fl.appendChild(b)});
+ document.getElementById("key").innerHTML=P.map(function(p){return '<span><i style="background:'+p.c+'"></i>'+p.n+'</span>'}).join("");
+}
+function draw(){
+ cal.innerHTML="";
+ ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach(function(d){var e=document.createElement("div");e.className="dow";e.textContent=d;cal.appendChild(e)});
+ for(var i=0;i<1;i++){var e=document.createElement("div");e.className="cell empty";cal.appendChild(e)}
+ for(var d=1;d<=31;d++){
+  var x=D[d],b=document.createElement(x?"button":"div");
+  b.className="cell"+(x?" has":"");
+  var h='<span class="d">Dec '+d+'</span>';
+  if(x){b.style.setProperty("--c",P[x[0]].c);h+='<em>'+x[3]+'</em>';
+   if(cur!=="All"&&x[1]!==cur)b.classList.add("hide");
+   b.onclick=(function(dd){return function(){sel=dd;show(dd)}})(d);
+   if(sel===d)b.classList.add("on");}
+  else b.classList.add("empty");
+  b.innerHTML=h;cal.appendChild(b);
+ }
+}
+function show(d){var x=D[d];
+ det.innerHTML='<span class="m">'+P[x[0]].n+' · '+x[1]+' · '+x[2]+' · Dec '+d+'</span><h3>'+x[3]+'</h3><p>'+x[4]+'</p><p>'+x[5]+'</p>';draw();}
+setup();draw();
+</script>
+</body>
+</html>

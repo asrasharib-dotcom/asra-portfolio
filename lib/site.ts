@@ -4,18 +4,19 @@ export const site = {
   url: 'https://asra-portfolio.vercel.app',
   experience: '3+ years',
   portrait: '/images/asra-portrait.png',
-  contact: {
-    email: 'hello@yourdomain.com',
-    linkedin: 'https://www.linkedin.com/in/your-profile',
-    instagram: 'https://www.instagram.com/your-handle',
-  },
+ contact: {
+  email: 'asrasharib@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/asra-sharib-13a560276/',
+  instagram: 'https://www.instagram.com/marketingbyasra/',
+},
 }
 
 export const navLinks = [
-  { href: '/#work', label: 'Work' },
-  { href: '/#social', label: 'Social' },
+  { href: '/#home', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#work', label: 'Projects' },
   { href: '/#results', label: 'Results' },
   { href: '/#about', label: 'About' },
-  { href: '/#services', label: 'Services' },
   { href: '/#contact', label: 'Contact' },
 ]
+

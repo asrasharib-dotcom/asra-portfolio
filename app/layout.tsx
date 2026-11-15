@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Instrument_Serif } from 'next/font/google'
 import { site } from '@/lib/site'
 import './globals.css'
-
+import { FloatingContact } from '@/components/floating-contact'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const instrument = Instrument_Serif({
   subsets: ['latin'],
@@ -50,9 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${instrument.variable} bg-background`}>
       <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+  {children}
+  <FloatingContact />
+  {process.env.NODE_ENV === 'production' && <Analytics />}
+</body>
     </html>
   )
 }
