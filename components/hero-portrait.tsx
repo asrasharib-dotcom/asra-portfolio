@@ -27,39 +27,41 @@ const poseNames = [
 export function HeroPortrait() {
   const [poseIndex, setPoseIndex] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
+  const [loadedImages, setLoadedImages] = useState<number[]>([0])
   const portraitRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = portraitRef.current?.closest('section')
     if (!section) return
 
-    const targetSection = section
+    const handleMove = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return
 
-    function handleMove(event: Event) {
-      const pointer = event as PointerEvent
-      if (pointer.pointerType === 'touch') return
-
-      const bounds = targetSection.getBoundingClientRect()
-      const x = (pointer.clientX - bounds.left) / bounds.width
+      const bounds = section.getBoundingClientRect()
+      const x = (event.clientX - bounds.left) / bounds.width
 
       setIsHovering(true)
 
-      if (x < 0.36) setPoseIndex(1)
-      else if (x > 0.64) setPoseIndex(2)
-      else setPoseIndex(0)
+      if (x < 0.36) {
+        setPoseIndex(1)
+      } else if (x > 0.64) {
+        setPoseIndex(2)
+      } else {
+        setPoseIndex(0)
+      }
     }
 
-    function handleLeave() {
+    const handleLeave = () => {
       setIsHovering(false)
       setPoseIndex(0)
     }
 
-    targetSection.addEventListener('pointermove', handleMove)
-    targetSection.addEventListener('pointerleave', handleLeave)
+    section.addEventListener('pointermove', handleMove)
+    section.addEventListener('pointerleave', handleLeave)
 
     return () => {
-      targetSection.removeEventListener('pointermove', handleMove)
-      targetSection.removeEventListener('pointerleave', handleLeave)
+      section.removeEventListener('pointermove', handleMove)
+      section.removeEventListener('pointerleave', handleLeave)
     }
   }, [])
 
@@ -72,6 +74,14 @@ export function HeroPortrait() {
 
     return () => window.clearInterval(timer)
   }, [isHovering])
+
+  useEffect(() => {
+    setLoadedImages((current) =>
+      current.includes(poseIndex)
+        ? current
+        : [...current, poseIndex],
+    )
+  }, [poseIndex])
 
   return (
     <div
@@ -90,9 +100,9 @@ export function HeroPortrait() {
       </div>
 
       <div className="relative z-10 aspect-[4/5] w-full max-w-lg">
-        {poses.map((src, index) => (
+        {loadedImages.map((index) => (
           <div
-            key={src}
+            key={poses[index]}
             aria-hidden={poseIndex !== index}
             className={`absolute inset-0 transition-all duration-700 ease-in-out ${
               poseIndex === index
@@ -101,14 +111,11 @@ export function HeroPortrait() {
             }`}
           >
             <Image
-              src={src}
-              alt={
-                poseIndex === index
-                  ? `Asra Sharib — ${poseNames[index]}`
-                  : ''
-              }
+              src={poses[index]}
+              alt={`Asra Sharib — ${poseNames[index]}`}
               fill
               priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-contain object-bottom"
             />
