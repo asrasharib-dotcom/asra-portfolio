@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap');
+
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
@@ -37,7 +37,6 @@
   --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-
 :root {
   color-scheme: light;
   --background: #F5F7F4;
@@ -55,36 +54,39 @@
   --muted-foreground: #53636B;
   --accent: #D6E8E7;
   --accent-foreground: #263847;
---blush: #527D89;
---destructive: #9B3D43;
+  --blush: #527D89;
+  --destructive: #9B3D43;
   --border: rgb(38 56 71 / 0.14);
   --input: rgb(38 56 71 / 0.18);
   --ring: #527D89;
   --radius: 0.75rem;
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
   }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
-::selection {
-  background: #D6E8E7;
-  color: #263847;
-}
+
+  ::selection {
+    background: #D6E8E7;
+    color: #263847;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -99,6 +101,7 @@
     opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: none;
@@ -114,7 +117,6 @@
   background-image: radial-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px);
   background-size: 3px 3px;
 }
-
 
 @keyframes float {
   0%,
@@ -132,15 +134,19 @@
   0% {
     transform: scale(1, 1);
   }
+
   25% {
     transform: scale(1.04, 0.96);
   }
+
   45% {
     transform: scale(0.97, 1.04);
   }
+
   65% {
     transform: scale(1.02, 0.98);
   }
+
   100% {
     transform: scale(1, 1);
   }
@@ -168,6 +174,7 @@
     transform: none;
   }
 }
+
 /* Results section visibility fix */
 #results .reveal {
   opacity: 1 !important;
